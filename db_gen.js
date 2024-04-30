@@ -9,13 +9,8 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
     port: 5432, // Default PostgreSQL port
     ssl: {
-        rejectUnauthorized: false, // Set to false if using self-signed certificates
-        // You may need to provide other SSL options such as ca, cert, and key
-        // Example:
-        // ca: fs.readFileSync('path/to/ca-certificate.crt'),
-        // cert: fs.readFileSync('path/to/client-certificate.crt'),
-        // key: fs.readFileSync('path/to/client-certificate.key')
-    },
+        rejectUnauthorized: false, 
+    }
   });
 
 
