@@ -31,6 +31,7 @@ const createTablesQuery = `
         country VARCHAR(100) NOT NULL,
         zipcode VARCHAR(20) NOT NULL
     );
+    
 
     CREATE TABLE IF NOT EXISTS user_address (
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
