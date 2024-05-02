@@ -2,6 +2,16 @@
  * @swagger
  * components:
  *   schemas:
+ *     User:
+ *       type: object
+ *       properties:
+ *         relationship_type:
+ *           type: string
+ *           description: The type of relationship between the user and the address
+ *           enum:
+ *             - OWNER
+ *             - TENANT
+ *             - OTHER
  *     Address:
  *       type: object
  *       properties:
@@ -138,10 +148,10 @@
 
 import express from 'express';
 import {
-  createAddress,
-  getAddress,
-  updateAddress,
-  deleteAddress,
+    createAddress,
+    getAddress,
+    updateAddress,
+    deleteAddress,
 } from '../controllers/addressController.js';
 
 const router = express.Router();
