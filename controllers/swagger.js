@@ -11,12 +11,12 @@ const options = {
     },
     servers: [
       {
-        url: 'https://address-management-system.onrender.com/api-docs', 
+        url: 'http://localhost:3000', 
         description: 'Local development server',
       },
     ],
   },
-  apis: ['./routes/*.js'], 
+  apis: ['./routes/*.js'], // Path to your route files
 };
 
 const specs = swaggerJsdoc(options);
