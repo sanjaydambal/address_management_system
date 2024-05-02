@@ -36,7 +36,7 @@ const createTablesQuery = `
     CREATE TABLE IF NOT EXISTS user_address (
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         user_id UUID,
-        address_id UUID REFERENCES addresses(id),
+        address_id UUID REFERENCES addresses(id) on delete cascade,
         relationship_type VARCHAR(20) CHECK (relationship_type IN ('OWNER', 'TENANT', 'OTHER')) NOT NULL
     );
 `;
