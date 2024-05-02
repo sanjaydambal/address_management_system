@@ -50,7 +50,7 @@ const getAddress = asyncHandler(async (req, res) => {
 
 const updateAddress = asyncHandler(async (req, res) => {
     const id = req.params.id;
-    const { address } = req.body;
+    const { address,user } = req.body;
 
     try {
         // Update address in the addresses table
@@ -58,6 +58,8 @@ const updateAddress = asyncHandler(async (req, res) => {
             'UPDATE addresses SET address_type_code = $1, is_primary = $2, name = $3, primary_contact_name = $4, line1 = $5, line2 = $6, line3 = $7, city = $8, state_or_province = $9, country = $10, zipcode = $11 WHERE id = $12',
             [address.address_type_code, address.is_primary, address.name, address.primary_contact_name, address.line1, address.line2, address.line3, address.city, address.state_or_province, address.country, address.zipcode, id]
         );
+        let query1 = 'update user_address set relationship_type = $1 where address_id = $2 and user_id = $3 '
+        await pool.query(query1,[user.relationship_type,id,user.id]);
         
 
         res.status(200).json({ message: 'Address updated successfully' });

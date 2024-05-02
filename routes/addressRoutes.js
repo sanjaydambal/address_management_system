@@ -5,6 +5,8 @@
  *     User:
  *       type: object
  *       properties:
+ * id:
+ * type:number
  *         relationship_type:
  *           type: string
  *           description: The type of relationship between the user and the address
@@ -48,20 +50,7 @@
  *         zipcode:
  *           type: string
  *           description: ZIP code of the address
- *     
- *     RequestBody:
- *       type: object
- *       properties:
- *         user:
- *           $ref: '#/components/schemas/User'
- *         address:
- *           $ref: '#/components/schemas/Address'
- *     Error:
- *       type: object
- *       properties:
- *         error:
- *           type: string
- *           description: Error message
+
  */
 
 
@@ -76,7 +65,9 @@
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Address'
+ *             allOf:
+ *            - $ref: '#/components/schemas/User'
+ *            - $ref: '#/components/schemas/Address'
  *     responses:
  *       201:
  *         description: Address created successfully
@@ -103,7 +94,9 @@
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Address'
+ *               allOf:
+ *              - $ref: '#/components/schemas/User'
+ *              - $ref: '#/components/schemas/Address'
  *       404:
  *         description: Address not found
  *       500:
