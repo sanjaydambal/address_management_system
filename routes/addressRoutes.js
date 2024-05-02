@@ -148,10 +148,10 @@
 
 import express from 'express';
 import {
-    createAddress,
-    getAddress,
-    updateAddress,
-    deleteAddress,
+  createAddress,
+  getAddress,
+  updateAddress,
+  deleteAddress,
 } from '../controllers/addressController.js';
 
 const router = express.Router();
