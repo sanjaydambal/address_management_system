@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://address-management-system.onrender.com', 
+        url: 'https://address-management-system.onrender.com/api-docs', 
         description: 'Local development server',
       },
     ],
