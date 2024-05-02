@@ -1,5 +1,7 @@
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import express from 'express';
+import cors from 'cors'; 
 
 const options = {
   definition: {
@@ -20,7 +22,12 @@ const options = {
 };
 
 const specs = swaggerJsdoc(options);
+const app = express(); // Create Express application
 
-export default function setupSwagger(app) {
+// Add CORS middleware to handle CORS requests
+app.use(cors());
+
+// Setup Swagger documentation
+export default function setupSwagger() {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 }
