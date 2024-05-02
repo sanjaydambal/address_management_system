@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000', 
+        url: 'https://address-management-system.onrender.com', 
         description: 'Local development server',
       },
     ],
@@ -21,6 +21,6 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 
-export default function setupSwagger(app) {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
-}
+export default function setupSwagger(app, swaggerUrl) {
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerUrl));
+  }
