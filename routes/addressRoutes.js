@@ -5,8 +5,9 @@
  *     User:
  *       type: object
  *       properties:
- * id:
- * type:number
+ *         id:
+ *           type: string
+ *           description: The unique identifier for the user
  *         relationship_type:
  *           type: string
  *           description: The type of relationship between the user and the address
@@ -50,9 +51,7 @@
  *         zipcode:
  *           type: string
  *           description: ZIP code of the address
-
  */
-
 
 /**
  * @swagger
@@ -65,9 +64,12 @@
  *       content:
  *         application/json:
  *           schema:
- *             allOf:
- *            - $ref: '#/components/schemas/User'
- *            - $ref: '#/components/schemas/Address'
+ *             type: object
+ *             properties:
+ *               user:
+ *                 $ref: '#/components/schemas/User'
+ *               address:
+ *                 $ref: '#/components/schemas/Address'
  *     responses:
  *       201:
  *         description: Address created successfully
@@ -94,9 +96,7 @@
  *         content:
  *           application/json:
  *             schema:
- *               allOf:
- *              - $ref: '#/components/schemas/User'
- *              - $ref: '#/components/schemas/Address'
+ *               $ref: '#/components/schemas/Address'
  *       404:
  *         description: Address not found
  *       500:
@@ -116,7 +116,12 @@
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Address'
+ *             type: object
+ *             properties:
+ *               user:
+ *                 $ref: '#/components/schemas/User'
+ *               address:
+ *                 $ref: '#/components/schemas/Address'
  *     responses:
  *       200:
  *         description: Address updated successfully
