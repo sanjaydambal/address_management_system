@@ -147,7 +147,7 @@
 import express from 'express';
 import {
   createAddress,
-  getAddress,
+  getAddressById,
   updateAddress,
   deleteAddress,
 } from '../controllers/addressController.js';
@@ -155,6 +155,6 @@ import {
 const router = express.Router();
 
 router.route('/').post(createAddress);
-router.route('/:id').get(getAddress).put(updateAddress).delete(deleteAddress);
+router.route('/:id').get(getAddressById).put(updateAddress).delete(deleteAddress);
 
 export default router;
